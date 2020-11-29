@@ -9,12 +9,13 @@ inputs:
 branding:
   icon: 'search'  
   color: 'blue'
+  
 using: "composite"
   steps: 
     - uses: actions/setup-java@v1
       with:
         java-version: '11'
-    - run: mvn -f ${{ inputs.plugin }} clean compile verify
+    - run: mvn -f ${{ inputs.path-to-pom }} clean compile verify
       shell: bash
 
 
