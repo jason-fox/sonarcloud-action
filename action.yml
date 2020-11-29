@@ -1,23 +1,20 @@
-name: 'Sonarcloud Action'
-description: 'Rebuild binaries and upload to Sonarcloud'
+name: Sonarcloud Action
+description: Rebuild binaries and upload to Sonarcloud
 inputs:
   path-to-pom:
-    description: 'POM file location'     
+    description: POM file location     
     required: true
-    default: './pom.xml'
+    default: ./pom.xml
 
 branding:
   icon: "search"  
   color: "blue"
 
-using: "composite"
-  steps: 
+runs:
+  using: "composite"
+  steps:
     - uses: actions/setup-java@v1
       with:
         java-version: 11
     - run: mvn -f ${{ inputs.path-to-pom }} clean compile verify
       shell: bash
-
-
-
-
