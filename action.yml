@@ -13,5 +13,5 @@ branding:
 runs:
   using: "composite"
   steps:
-    - run: mvn -f ${{ inputs.path-to-pom }} -Dsonar.login="${SONAR_CLOUD_LOGIN}" clean compile verify
+    - run: mvn -f ${{ inputs.path-to-pom }} -Dsonar.login="${SONAR_CLOUD_LOGIN}" compile verify
       shell: bash
